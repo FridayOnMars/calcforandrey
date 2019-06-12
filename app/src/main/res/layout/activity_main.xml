@@ -8,9 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4">
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Здесь может быть ваша реклама"
+            android:textSize="18sp"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/num_box"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="0dp">
@@ -23,7 +28,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/result_box"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_width="match_parent">
@@ -40,8 +44,40 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="\^"
+            android:textSize="20sp"
+            android:onClick="onOperationClick"/>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="\%"
+            android:textSize="20sp"
+            android:onClick="onOperationClick"/>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="\/"
+            android:textSize="20sp"
+            android:onClick="onOperationClick"/>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="\c"
+            android:textSize="20sp"
+            android:onClick="onClearClick"/>
+    </LinearLayout>
+
         <LinearLayout
-            android:id="@+id/numbers_box1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
@@ -69,13 +105,12 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
-                android:text="+"
+                android:text="\+"
                 android:textSize="20sp"
                 android:onClick="onOperationClick"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/numbers_box2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
@@ -103,13 +138,12 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
-                android:text="-"
+                android:text="\-"
                 android:textSize="20sp"
                 android:onClick="onOperationClick"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/numbers_box3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
@@ -137,13 +171,12 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
-                android:text="*"
+                android:text="\*"
                 android:textSize="20sp"
                 android:onClick="onOperationClick"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/numbers_box4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
@@ -158,14 +191,14 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
-                android:text="/"
+                android:text="\."
                 android:textSize="20sp"
-                android:onClick="onOperationClick"/>
+                android:onClick="onNumberClick"/>
             <Button
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
-                android:text="="
+                android:text="\="
                 android:textSize="20sp"
                 android:onClick="onOperationClick"/>
         </LinearLayout>
