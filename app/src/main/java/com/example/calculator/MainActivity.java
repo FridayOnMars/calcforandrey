@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onOperationClick(View view){
         Button button = (Button) view;
-        String op = "" + button.getText().toString();
+        String op = button.getText().toString();
         String num = number.getText().toString();
         if(num.length()>0 && b==0) {
             num1 = Double.valueOf(num);
@@ -92,9 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "^":
                 operand = Math.pow(num1,num);
-                break;
-            case "c":
-                number.setText("");
                 break;
         }
 
