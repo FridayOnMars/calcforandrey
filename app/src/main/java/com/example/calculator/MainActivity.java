@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
         clickable = 2;
         switch (clickpoint){
             case 0: clickpoint = 1; break;
-            case 1: clickpoint = 1; break;
             case 2: clickpoint = 3; break;
-            case 3: clickpoint = 1; break;
         }
     }
     public void onPointClick(View view){
@@ -48,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         Cleaning();
         result.setText("");
         operation = "=";
-        clickpoint = 0;
         clickable = 0;
+        number.setText("");
     }
     public void onOperationClick(View view){
         Button button = (Button) view;
@@ -75,10 +73,11 @@ public class MainActivity extends AppCompatActivity {
             num = num.split("\\" + String.format("%s",operation))[a.length-1];
             if(op.equals("=")){
                 Operations(Double.valueOf(num), num1);
+                number.setText(operand.toString());
                 Cleaning();
                 operation = op;
-                clickable = 1;
-                clickpoint = 0;
+                clickable = 2;
+                return;
             }
             else{
                 Operations(Double.valueOf(num), num1);
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     {
         num1=0.0;
         b=0;
-        number.setText("");
+        clickpoint = 0;
         operand = 0.0;
     }
 }
