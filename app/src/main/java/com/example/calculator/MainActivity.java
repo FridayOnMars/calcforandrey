@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void onPointClick(View view){
         switch (clickpoint){
             case 0: return;
-            case 1: number.setText(String.format("%s%s", number.getText().toString(), ".")); clickpoint=2; break;
+            case 1: number.setText(String.format("%s%s", number.getText().toString() ,".")); clickpoint=2; break;
         }
     }
     public void onClearClick(View view){
