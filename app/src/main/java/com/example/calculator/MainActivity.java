@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     TextView result; // текстовое поле для вывода результата
     EditText number;   // поле для ввода числа
     Double operand = null;  // операнд операции
-    String Operation = "="; // последняя операция
+    String operation = "="; // последняя операция
     private int clickable = 0;
     private int clickpoint = 0;
     double num1 = 0;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClearClick(View view){
         Cleaning();
         result.setText("");
-        Operation = "=";
+        operation = "=";
         clickpoint = 0;
         clickable = 0;
     }
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         }
         switch (clickable){
             case 0: return;
-            case 1: Operation = op;
+            case 1: operation = op;
                 number.setText(String.format("%s%s", number.getText().toString().substring(0, number.getText().toString().length() - 1), String.format("%s", op)));
                 return;
         }
@@ -67,22 +67,23 @@ public class MainActivity extends AppCompatActivity {
         if(num.length()>0 && b==0) {
             num1 = Double.valueOf(num);
             b++;
-            Operation = op;
+            operation = op;
             number.setText(String.format("%s%s", number.getText().toString(), op));
         }
         else if(num.length()>0 && b>0){
-            String []a = num.split(String.format("%s",Operation));
-            num = num.split(String.format("%s",Operation))[a.length-1];
+            String []a = num.split("\\" + operation);
+            num = num.split("\\" + String.format("%s",operation))[a.length-1];
             if(op.equals("=")){
                 Operations(Double.valueOf(num), num1);
                 Cleaning();
-                Operation = op;
+                operation = op;
                 clickable = 1;
+                clickpoint = 0;
             }
             else{
                 Operations(Double.valueOf(num), num1);
                 num1 = Double.valueOf(operand);
-                Operation = op;
+                operation = op;
             }
             number.append(String.format("%s", op));
         }
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void Operations(Double num, Double num1)
     {
-        switch (Operation) {
+        switch (operation) {
             case "*": operand = num1 * num; break;
             case "/": operand = num1 / num; break;
             case "+": operand = num1 + num; break;
