@@ -193,7 +193,7 @@
                 android:layout_height="70dp"
                 android:text="\."
                 android:textSize="20sp"
-                android:onClick="onNumberClick"/>
+                android:onClick="onPointClick"/>
             <Button
                 android:layout_weight="1"
                 android:layout_width="0dp"
