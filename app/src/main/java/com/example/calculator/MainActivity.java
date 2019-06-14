@@ -3,9 +3,11 @@ package com.example.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.pm.ActivityInfo;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     double num1 = 0;
     int b=0;
 
+    private void changewidth(int button_name, int width){
+        Button button = (Button) findViewById(button_name);
+        RelativeLayout.LayoutParams param = (RelativeLayout.LayoutParams) button.getLayoutParams();
+        param.width = (width-110)/4;
+        button.setLayoutParams(param);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         result =(TextView) findViewById(R.id.result);
         number =(EditText) findViewById(R.id.number);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        changewidth(R.id.button_step, width);
+        changewidth(R.id.button_percent, width);
+        changewidth(R.id.button_division, width);
+        changewidth(R.id.button_clear, width);
     }
     public void onNumberClick(View view){
         Button button = (Button) view;
