@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         changewidth(R.id.button_percent, width);
         changewidth(R.id.button_division, width);
         changewidth(R.id.button_clear, width);
+
     }
     public void onNumberClick(View view){
         Button button = (Button) view;
