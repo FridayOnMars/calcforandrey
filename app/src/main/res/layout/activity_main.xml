@@ -5,6 +5,13 @@
     android:orientation="vertical"
     android:padding="50px"
     android:gravity="bottom">
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scrollbars="vertical">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +23,6 @@
             android:layout_alignParentTop="true"
             android:text="Здесь может быть ваша реклама"
             android:textSize="18sp" />
-
         <EditText
             android:id="@+id/number"
             android:layout_width="wrap_content"
@@ -27,7 +33,6 @@
             android:textSize="20sp" />
 
         <TextView
-
             android:id="@+id/result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +40,6 @@
             android:layout_marginTop="40px"
             android:text="Результат: "
             android:textSize="20sp" />
-
         <TextView
             android:id="@+id/result"
             android:layout_width="wrap_content"

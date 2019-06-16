@@ -3,6 +3,7 @@ package com.example.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.pm.ActivityInfo;
+//import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
@@ -47,16 +48,16 @@ public class MainActivity extends AppCompatActivity {
     public void onNumberClick(View view){
         Button button = (Button) view;
         number.append(button.getText());
-        clickable = 2;
         switch (clickpoint){
             case 0: clickpoint = 1; break;
             case 2: clickpoint = 3; break;
         }
+        clickable = 2;
     }
     public void onPointClick(View view){
         switch (clickpoint){
             case 0: return;
-            case 1: number.setText(String.format("%s%s", number.getText().toString() ,".")); clickpoint=2; break;
+            case 1: number.setText(String.format("%s%s", number.getText().toString() ,".")); clickpoint=2; clickable=0; break;
         }
     }
     public void onClearClick(View view){
@@ -69,14 +70,13 @@ public class MainActivity extends AppCompatActivity {
     public void onOperationClick(View view){
         Button button = (Button) view;
         String op = button.getText().toString();
-        switch (clickpoint){
-            case 2: return;
-        }
-        switch (clickable){
-            case 0: return;
-            case 1: operation = op;
-                number.setText(String.format("%s%s", number.getText().toString().substring(0, number.getText().toString().length() - 1), String.format("%s", op)));
-                return;
+        if(clickpoint==2 || clickpoint == 0){
+                switch (clickable){
+                    case 0: return;
+                    case 1: operation = op;
+                        number.setText(String.format("%s%s", number.getText().toString().substring(0, number.getText().toString().length() - 1), String.format("%s", op)));
+                        return;
+                }
         }
         String num = number.getText().toString();
         if(num.length()>0 && b==0) {
@@ -101,9 +101,10 @@ public class MainActivity extends AppCompatActivity {
                 num1 = Double.valueOf(operand);
                 operation = op;
             }
-            number.append(String.format("%s", op));
+            number.setText(String.format("%s%s", number.getText().toString(), op));
         }
         clickable = 1;
+        clickpoint = 0;
     }
     private void Operations(Double num, Double num1)
     {
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
             case "%": operand = num1 % num; break;
             case "^": operand = Math.pow(num1,num); break;
         }
-        clickpoint = 2;
         result.setText(operand.toString().replace('.',','));
     }
     private void Cleaning()
