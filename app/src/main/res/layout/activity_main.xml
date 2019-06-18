@@ -1,218 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:gravity="center_horizontal|bottom">
-        <EditText
-            android:id="@+id/etNumber"
-            android:layout_width="wrap_content"
+    android:gravity="center_horizontal">
+        <fragment
+            android:id="@+id/fragment_panel"
+            android:name="com.example.calculator.frg_panel"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/fragment_content"
+            android:layout_margin="13dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:inputType="phone"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/tvResultText"
-            android:layout_width="wrap_content"
+            tools:layout="@layout/fragment_panel"/>
+        <fragment
+            android:id="@+id/fragment_content"
+            android:name="com.example.calculator.frg_content"
+            android:layout_width="match_parent"
+            android:layout_above="@+id/fragment_buttons"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etNumber"
-            android:layout_marginTop="40dp"
-            android:text="@string/resultText"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/tvResult"
-            android:layout_width="wrap_content"
+            tools:layout="@layout/fragment_content"/>
+
+        <fragment
+            android:id="@+id/fragment_buttons"
+            android:name="com.example.calculator.frg_buttons"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/etNumber"
-            android:layout_marginTop="40dp"
-            android:layout_toEndOf="@id/tvResultText"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnStep"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@+id/tvResultText"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:onClick="onOperationClick"
-            android:text="@string/step"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnPercent"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignTop="@+id/btnStep"
-            android:layout_toEndOf="@id/btnStep"
-            android:onClick="onOperationClick"
-            android:text="@string/percent"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnDivision"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignTop="@+id/btnStep"
-            android:layout_toEndOf="@id/btnPercent"
-            android:onClick="onOperationClick"
-            android:text="@string/division"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_alignTop="@+id/btnStep"
-            android:layout_toEndOf="@id/btnDivision"
-            android:onClick="onClearClick"
-            android:text="@string/clear"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn7"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnStep"
-            android:layout_alignStart="@+id/btnStep"
-            android:layout_alignEnd="@id/btnStep"
-            android:onClick="onNumberClick"
-            android:text="@string/_7"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn8"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnPercent"
-            android:layout_alignStart="@+id/btnPercent"
-            android:layout_alignEnd="@id/btnPercent"
-            android:onClick="onNumberClick"
-            android:text="@string/_8"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn9"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnDivision"
-            android:layout_alignStart="@+id/btnDivision"
-            android:layout_alignEnd="@id/btnDivision"
-            android:onClick="onNumberClick"
-            android:text="@string/_9"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnClear"
-            android:layout_alignStart="@+id/btnClear"
-            android:layout_alignEnd="@id/btnClear"
-            android:onClick="onOperationClick"
-            android:text="@string/plus"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn4"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn7"
-            android:layout_alignStart="@+id/btnStep"
-            android:layout_alignEnd="@id/btnStep"
-            android:onClick="onNumberClick"
-            android:text="@string/_4"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn8"
-            android:layout_alignStart="@+id/btnPercent"
-            android:layout_alignEnd="@id/btnPercent"
-            android:onClick="onNumberClick"
-            android:text="@string/_5"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn6"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn9"
-            android:layout_alignStart="@+id/btnDivision"
-            android:layout_alignEnd="@id/btnDivision"
-            android:onClick="onNumberClick"
-            android:text="@string/_6"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnMinus"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnPlus"
-            android:layout_alignStart="@+id/btnClear"
-            android:layout_alignEnd="@id/btnClear"
-            android:onClick="onOperationClick"
-            android:text="@string/minus"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn4"
-            android:layout_alignStart="@+id/btnStep"
-            android:layout_alignEnd="@id/btnStep"
-            android:onClick="onNumberClick"
-            android:text="@string/_1"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn5"
-            android:layout_alignStart="@+id/btnPercent"
-            android:layout_alignEnd="@id/btnPercent"
-            android:onClick="onNumberClick"
-            android:text="@string/_2"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn6"
-            android:layout_alignStart="@+id/btnDivision"
-            android:layout_alignEnd="@id/btnDivision"
-            android:onClick="onNumberClick"
-            android:text="@string/_3"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnUmn"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnMinus"
-            android:layout_alignStart="@+id/btnClear"
-            android:layout_alignEnd="@id/btnClear"
-            android:onClick="onOperationClick"
-            android:text="@string/multiplication"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btn0"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn1"
-            android:layout_alignStart="@id/btnStep"
-            android:layout_alignEnd="@+id/btnPercent"
-            android:onClick="onNumberClick"
-            android:text="@string/_0"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnTouch"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btn3"
-            android:layout_alignStart="@+id/btnDivision"
-            android:layout_alignEnd="@id/btnDivision"
-            android:onClick="onTouchClick"
-            android:text="@string/touch"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_below="@id/btnUmn"
-            android:layout_alignStart="@+id/btnClear"
-            android:layout_alignEnd="@id/btnClear"
-            android:onClick="onOperationClick"
-            android:text="@string/equally"
-            android:textSize="20sp" />
+            android:layout_alignParentBottom="true"
+            tools:layout="@layout/fragment_buttons" />
 </RelativeLayout>
+

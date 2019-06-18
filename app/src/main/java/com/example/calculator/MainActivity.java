@@ -1,8 +1,10 @@
 package com.example.calculator;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.content.pm.ActivityInfo;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
         changewidth(R.id.btnDivision, width);
         changewidth(R.id.btnClear, width);
 
+        Bundle bundle = new Bundle();
+        bundle.putString("edttext", "From Activity");
+// set Fragmentclass Arguments
+//        Fragmentclass fragobj = new Fragmentclass();
+//        fragobj.setArguments(bundle);
+//        Intent intent = new Intent(this,frg_panel.class);
+//        intent.putExtra("time", System.currentTimeMillis());
+        //startActivity(intent);
     }
     public void onNumberClick(View view){
         Button button = (Button) view;

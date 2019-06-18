@@ -20,4 +20,6 @@
     <string name="percent">%</string>
     <string name="step">^</string>
     <string name="resultText">Результат:</string>
+    <string name="timeText" />
+    <string name="textClose">Закрыть</string>
 </resources>
