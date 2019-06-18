@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
     android:gravity="center_horizontal">
-        <fragment
-            android:id="@+id/fragment_panel"
-            android:name="com.example.calculator.frg_panel"
+        <RelativeLayout
+            android:id="@+id/PanelFragment"
             android:layout_width="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_above="@+id/fragment_content"
-            android:layout_margin="13dp"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/fragment_panel"/>
-        <fragment
-            android:id="@+id/fragment_content"
-            android:name="com.example.calculator.frg_content"
+            android:layout_height="wrap_content">
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ContentFragment"
             android:layout_width="match_parent"
-            android:layout_above="@+id/fragment_buttons"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/fragment_content"/>
-
-        <fragment
-            android:id="@+id/fragment_buttons"
-            android:name="com.example.calculator.frg_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            tools:layout="@layout/fragment_buttons" />
+            android:layout_height="wrap_content" />
 </RelativeLayout>
 
