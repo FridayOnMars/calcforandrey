@@ -7,12 +7,15 @@
     android:gravity="center_horizontal">
         <RelativeLayout
             android:id="@+id/PanelFragment"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
+            android:layout_below="@+id/ContentFragment"
             android:layout_height="wrap_content">
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/ContentFragment"
             android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
             android:layout_height="wrap_content" />
 </RelativeLayout>
 
