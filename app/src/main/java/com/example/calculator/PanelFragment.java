@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,9 +16,16 @@ public class PanelFragment extends Fragment implements View.OnClickListener{
     FragmentCallToActivity closing;
     private long timer;
 
-    interface FragmentCallToActivity{
+    public interface FragmentCallToActivity{
 
         void onCloseClick(int a);
+    }
+
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if(context instanceof FragmentCallToActivity){
+            closing = (FragmentCallToActivity) context;
+        }
     }
 
     @SuppressLint("SimpleDateFormat")
