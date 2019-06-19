@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,18 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class ContentFrg extends Fragment implements View.OnClickListener{
+public class ContentFragment extends Fragment implements View.OnClickListener{
 
-    TextView result;; // текстовое поле для вывода результата
+    TextView result; // текстовое поле для вывода результата
     EditText number;   // поле для ввода числа
-    Double operand = null;  // операнд операции
-    String operation; // последняя операция
+    private Double operand = null;  // операнд операции
+    private String operation; // последняя операция
     private int clickable = 0;
     private int clicktouch = 0;
-    double num1 = 0;
-    int b=0;
+    private double num1 = 0;
+    private int b=0;
 
     private void operations(Double num, Double num1) {
         switch (operation) {
@@ -31,7 +31,7 @@ public class ContentFrg extends Fragment implements View.OnClickListener{
             case "%": operand = num1 % num; break;
             case "^": operand = Math.pow(num1,num); break;
         }
-        result.setText(String.format("%s", String.format("%s",operand.toString())).replace('.',','));
+        result.setText(String.format("%s", operand.toString().replace('.',',')));
     }
     private void cleaning() {
         num1=0.0;
@@ -39,23 +39,28 @@ public class ContentFrg extends Fragment implements View.OnClickListener{
         clicktouch = 0;
         operand = 0.0;
     }
-    private void changewidth(int button_name, int width, View rootView){
-        Button button = (Button) rootView.findViewById(button_name);
+    private static void changewidth(int button_name, int width, View rootView){
+        Button button = rootView.findViewById(button_name);
         RelativeLayout.LayoutParams param = (RelativeLayout.LayoutParams) button.getLayoutParams();
-        param.width = (width-110)/4;
+        param.width = (width-dpControl(50))/4;
         button.setLayoutParams(param);
+    }
+    public static int dpControl(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView =
-                inflater.inflate(R.layout.cnt_fragment, container, false);
-        int width = getArguments().getInt("size");
-        changewidth(R.id.btnStep, width,rootView);
-        changewidth(R.id.btnPercent, width,rootView);
-        changewidth(R.id.btnDivision, width,rootView);
-        changewidth(R.id.btnClear, width,rootView);
-        result =(TextView) rootView.findViewById(R.id.tvResult);
-        number =(EditText) rootView.findViewById(R.id.etNumber);
+                inflater.inflate(R.layout.fragment_content, container, false);
+        if(getArguments() != null){
+            int width = getArguments().getInt("size");
+            changewidth(R.id.btnStep, width,rootView);
+            changewidth(R.id.btnPercent, width,rootView);
+            changewidth(R.id.btnDivision, width,rootView);
+            changewidth(R.id.btnClear, width,rootView);
+        }
+        result = rootView.findViewById(R.id.tvResult);
+        number = rootView.findViewById(R.id.etNumber);
         rootView.findViewById(R.id.btn0).setOnClickListener(this);
         rootView.findViewById(R.id.btn1).setOnClickListener(this);
         rootView.findViewById(R.id.btn2).setOnClickListener(this);
@@ -82,7 +87,7 @@ public class ContentFrg extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 //        Toast.makeText(getActivity(), "Вы нажали на кнопку",
 //                Toast.LENGTH_SHORT).show();
-        Button bt = (Button) v.findViewById(v.getId());
+        Button bt = v.findViewById(v.getId());
         switch (v.getId()){
             case R.id.btn0:
             case R.id.btn1:
@@ -125,8 +130,8 @@ public class ContentFrg extends Fragment implements View.OnClickListener{
                     number.setText(String.format("%s%s", number.getText().toString(), op));
                 }
                 else if(num.length()>0 && b>0){
-                    String []a = num.split(String.format("%s","\\") + operation);
-                    num = num.split(String.format("%s","\\") + String.format("%s",operation))[a.length-1];
+                    String []a = num.split(String.format("%s%s","\\" ,operation));
+                    num = num.split(String.format("%s%s", "\\", operation))[a.length-1];
                     if(op.equals("=")){
                         operations(Double.valueOf(num), num1);
                         number.setText(String.format("%s", operand.toString()));

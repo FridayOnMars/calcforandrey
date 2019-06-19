@@ -9,7 +9,7 @@
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textClose" />
+        android:text="@string/button_textClose" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -17,6 +17,6 @@
         android:layout_toStartOf="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/timeText" />
+        android:text="@string/format_timeText" />
 
 </RelativeLayout>

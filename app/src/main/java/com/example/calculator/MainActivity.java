@@ -5,15 +5,14 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 
-public class MainActivity extends AppCompatActivity {
-
-    PanelFrg fragPnl = new PanelFrg();
-    ContentFrg fragCnt = new ContentFrg();
+public class MainActivity extends AppCompatActivity implements PanelFragment.FragmentCallToActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PanelFragment fragPnl = new PanelFragment();
+        ContentFragment fragCnt = new ContentFragment();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -27,7 +26,14 @@ public class MainActivity extends AppCompatActivity {
         bundle.putLong("time", System.currentTimeMillis());
         fragPnl.setArguments(bundle);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.PanelFragment, fragPnl).commit();
-        getSupportFragmentManager().beginTransaction().replace(R.id.ContentFragment, fragCnt).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.panelFragment, fragPnl).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.contentFragment, fragCnt).commit();
+    }
+
+    @Override
+    public void onCloseClick(int a) {
+        if(a == 1){
+            finish();
+        }
     }
 }

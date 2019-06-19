@@ -20,7 +20,7 @@
         android:layout_below="@+id/etNumber"
         android:layout_marginTop="20dp"
         android:layout_marginStart="5sp"
-        android:text="@string/resultText"
+        android:text="@string/format_resultText"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/tvResult"
@@ -38,7 +38,7 @@
         android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
-        android:text="@string/step"
+        android:text="@string/button_step"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnPercent"
@@ -46,7 +46,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnStep"
-        android:text="@string/percent"
+        android:text="@string/button_percent"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnDivision"
@@ -54,7 +54,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnPercent"
-        android:text="@string/division"
+        android:text="@string/button_division"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnClear"
@@ -62,7 +62,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnDivision"
-        android:text="@string/clear"
+        android:text="@string/button_clear"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn7"
@@ -71,7 +71,7 @@
         android:layout_below="@id/btnStep"
         android:layout_alignStart="@+id/btnStep"
         android:layout_alignEnd="@id/btnStep"
-        android:text="@string/_7"
+        android:text="@string/button_7"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn8"
@@ -80,7 +80,7 @@
         android:layout_below="@id/btnPercent"
         android:layout_alignStart="@+id/btnPercent"
         android:layout_alignEnd="@id/btnPercent"
-        android:text="@string/_8"
+        android:text="@string/button_8"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn9"
@@ -89,7 +89,7 @@
         android:layout_below="@id/btnDivision"
         android:layout_alignStart="@+id/btnDivision"
         android:layout_alignEnd="@id/btnDivision"
-        android:text="@string/_9"
+        android:text="@string/button_9"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnPlus"
@@ -98,7 +98,7 @@
         android:layout_below="@id/btnClear"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
-        android:text="@string/plus"
+        android:text="@string/button_plus"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn4"
@@ -107,7 +107,7 @@
         android:layout_below="@id/btn7"
         android:layout_alignStart="@+id/btnStep"
         android:layout_alignEnd="@id/btnStep"
-        android:text="@string/_4"
+        android:text="@string/button_4"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn5"
@@ -116,7 +116,7 @@
         android:layout_below="@id/btn8"
         android:layout_alignStart="@+id/btnPercent"
         android:layout_alignEnd="@id/btnPercent"
-        android:text="@string/_5"
+        android:text="@string/button_5"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn6"
@@ -125,7 +125,7 @@
         android:layout_below="@id/btn9"
         android:layout_alignStart="@+id/btnDivision"
         android:layout_alignEnd="@id/btnDivision"
-        android:text="@string/_6"
+        android:text="@string/button_6"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnMinus"
@@ -134,7 +134,7 @@
         android:layout_below="@id/btnPlus"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
-        android:text="@string/minus"
+        android:text="@string/button_minus"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn1"
@@ -143,7 +143,7 @@
         android:layout_below="@id/btn4"
         android:layout_alignStart="@+id/btnStep"
         android:layout_alignEnd="@id/btnStep"
-        android:text="@string/_1"
+        android:text="@string/button_1"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn2"
@@ -152,7 +152,7 @@
         android:layout_below="@id/btn5"
         android:layout_alignStart="@+id/btnPercent"
         android:layout_alignEnd="@id/btnPercent"
-        android:text="@string/_2"
+        android:text="@string/button_2"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn3"
@@ -161,7 +161,7 @@
         android:layout_below="@id/btn6"
         android:layout_alignStart="@+id/btnDivision"
         android:layout_alignEnd="@id/btnDivision"
-        android:text="@string/_3"
+        android:text="@string/button_3"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnUmn"
@@ -170,7 +170,7 @@
         android:layout_below="@id/btnMinus"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
-        android:text="@string/multiplication"
+        android:text="@string/button_multiplication"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btn0"
@@ -180,7 +180,7 @@
         android:layout_marginBottom="25dp"
         android:layout_alignStart="@id/btnStep"
         android:layout_alignEnd="@+id/btnPercent"
-        android:text="@string/_0"
+        android:text="@string/button_0"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnTouch"
@@ -189,7 +189,7 @@
         android:layout_below="@id/btn3"
         android:layout_alignStart="@+id/btnDivision"
         android:layout_alignEnd="@id/btnDivision"
-        android:text="@string/touch"
+        android:text="@string/button_touch"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnEnd"
@@ -198,6 +198,6 @@
         android:layout_below="@id/btnUmn"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
-        android:text="@string/equally"
+        android:text="@string/button_equally"
         android:textSize="20sp" />
 </RelativeLayout>
