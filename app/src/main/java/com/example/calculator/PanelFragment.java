@@ -36,7 +36,7 @@ public class PanelFragment extends Fragment implements View.OnClickListener{
         if(getArguments() != null){
             timer = getArguments().getLong("time");
         }
-        tvTime.setText(String.format("%s %s", tvTime.getText().toString(), time.format(timer)));
+        tvTime.setText(String.format(getString(R.string.format_timeText), time.format(timer)));
         rootView.findViewById(R.id.btnClose).setOnClickListener(this);
         return rootView;
     }
