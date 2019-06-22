@@ -31,7 +31,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
             case "%": operand = num1 % num; break;
             case "^": operand = Math.pow(num1,num); break;
         }
-        tvResult.setText(String.format("%s", operand.toString().replace('.',',')));
+        tvResult.setText(String.format(getString(R.string.format_result), operand.toString().replace('.',',')));
     }
     private void cleaning() {
         num1=0.0;
@@ -60,6 +60,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
             changewidth(R.id.btnClear, width,rootView);
         }
         tvResult = rootView.findViewById(R.id.tvResult);
+        tvResult.setText(String.format(getString(R.string.format_result), ""));
         etNumber = rootView.findViewById(R.id.etNumber);
         rootView.findViewById(R.id.btn0).setOnClickListener(this);
         rootView.findViewById(R.id.btn1).setOnClickListener(this);
@@ -153,7 +154,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.btnClear:
                 cleaning();
-                tvResult.setText("");
+                tvResult.setText(String.format(getString(R.string.format_result), ""));
                 operation = "";
                 clickable = 0;
                 etNumber.setText("");

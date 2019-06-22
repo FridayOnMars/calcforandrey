@@ -14,22 +14,13 @@
         android:inputType="phone"
         android:textSize="20sp" />
     <TextView
-        android:id="@+id/tvResultText"
+        android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etNumber"
         android:layout_marginTop="20dp"
         android:layout_marginStart="5sp"
-        android:text="@string/format_resultText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etNumber"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@id/tvResultText"
+        android:text="@string/format_result"
         android:textSize="20sp" />
     <Button
         android:id="@+id/btnStep"

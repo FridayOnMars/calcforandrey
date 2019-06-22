@@ -20,6 +20,6 @@
     <string name="button_percent">%</string>
     <string name="button_step">^</string>
     <string name="button_textClose">Закрыть</string>
-    <string name="format_resultText">Результат:</string>
+    <string name="format_result">Результат: %s</string>
     <string name="format_timeText">Время открытия приложения: %s</string>
 </resources>
