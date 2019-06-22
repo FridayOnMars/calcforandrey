@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="5sp"
-        android:inputType="phone"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:longClickable="false"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/tvResult"
@@ -29,6 +31,7 @@
         android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_step"
         android:textSize="20sp" />
     <Button
@@ -37,6 +40,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnStep"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_percent"
         android:textSize="20sp" />
     <Button
@@ -45,6 +49,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnPercent"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_division"
         android:textSize="20sp" />
     <Button
@@ -53,6 +58,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/btnStep"
         android:layout_toEndOf="@id/btnDivision"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_clear"
         android:textSize="20sp" />
     <Button
@@ -89,6 +95,7 @@
         android:layout_below="@id/btnClear"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_plus"
         android:textSize="20sp" />
     <Button
@@ -125,6 +132,7 @@
         android:layout_below="@id/btnPlus"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_minus"
         android:textSize="20sp" />
     <Button
@@ -161,6 +169,7 @@
         android:layout_below="@id/btnMinus"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_multiplication"
         android:textSize="20sp" />
     <Button
@@ -189,6 +198,7 @@
         android:layout_below="@id/btnUmn"
         android:layout_alignStart="@+id/btnClear"
         android:layout_alignEnd="@id/btnClear"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/button_equally"
         android:textSize="20sp" />
 </RelativeLayout>

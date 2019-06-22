@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Калькулятор</string>
     <string name="button_0">0</string>
     <string name="button_1">1</string>
     <string name="button_2">2</string>
@@ -22,4 +22,7 @@
     <string name="button_textClose">Закрыть</string>
     <string name="format_result">Результат: %s</string>
     <string name="format_timeText">Время открытия приложения: %s</string>
+
 </resources>
+
+
