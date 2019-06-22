@@ -17,10 +17,10 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
     EditText etNumber;   // поле для ввода числа
     private Double operand = null;  // операнд операции
     private String operation; // последняя операция
-    private int clickable = 0;
-    private int clicktouch = 0;
-    private double num1 = 0;
-    private int b=0;
+    private int flagOperand = 0; // флаг для определения операции
+    private int flagPoint = 0; // флаг для опеределения точки
+    private double nextNumb = 0; // второе число в операции
+    private int flagForNextNumb=0; // флаг для определения второго числа в операции
 
     private void operations(Double num, Double num1) {
         switch (operation) {
@@ -33,31 +33,33 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
         }
         tvResult.setText(String.format(getString(R.string.format_result), operand.toString().replace('.',',')));
     }
+
     private void cleaning() {
-        num1=0.0;
-        b=0;
-        clicktouch = 0;
+        nextNumb=0.0;
+        flagForNextNumb=0;
+        flagPoint = 0;
         operand = 0.0;
     }
-    private static void changewidth(int button_name, int width, View rootView){
+
+    private static void width(int button_name, int width, View rootView){
         Button button = rootView.findViewById(button_name);
         RelativeLayout.LayoutParams param = (RelativeLayout.LayoutParams) button.getLayoutParams();
         param.width = (width-dpControl(50))/4;
         button.setLayoutParams(param);
     }
+
     public static int dpControl(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView =
-                inflater.inflate(R.layout.fragment_content, container, false);
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_content, container, false);
         if(getArguments() != null){
-            int width = getArguments().getInt("size");
-            changewidth(R.id.btnStep, width,rootView);
-            changewidth(R.id.btnPercent, width,rootView);
-            changewidth(R.id.btnDivision, width,rootView);
-            changewidth(R.id.btnClear, width,rootView);
+            int widthSize = getArguments().getInt("size");
+            width(R.id.btnStep, widthSize,rootView);
+            width(R.id.btnPercent, widthSize,rootView);
+            width(R.id.btnDivision, widthSize,rootView);
+            width(R.id.btnClear, widthSize,rootView);
         }
         tvResult = rootView.findViewById(R.id.tvResult);
         tvResult.setText(String.format(getString(R.string.format_result), ""));
@@ -86,8 +88,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-//        Toast.makeText(getActivity(), "Вы нажали на кнопку",
-//                Toast.LENGTH_SHORT).show();
         Button bt = v.findViewById(v.getId());
         switch (v.getId()){
             case R.id.btn0:
@@ -101,11 +101,11 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
             case R.id.btn8:
             case R.id.btn9:
                 etNumber.setText(String.format("%s%s", etNumber.getText().toString(),bt.getText()));
-                switch (clicktouch){
-                    case 0: clicktouch = 1; break;
-                    case 2: clicktouch = 3; break;
+                switch (flagPoint){
+                    case 0: flagPoint = 1; break;
+                    case 2: flagPoint = 3; break;
                 }
-                clickable = 2;
+                flagOperand = 2;
                 break;
             case R.id.btnPlus:
             case R.id.btnMinus:
@@ -115,8 +115,8 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
             case R.id.btnPercent:
             case R.id.btnEnd:
                 String op = String.format("%s",bt.getText());
-                if(clicktouch==2 || clicktouch == 0){
-                    switch (clickable){
+                if(flagPoint==2 || flagPoint == 0){
+                    switch (flagOperand){
                         case 0: return;
                         case 1: operation = op;
                             etNumber.setText(String.format("%s%s", etNumber.getText().toString().substring(0, etNumber.getText().toString().length() - 1), String.format("%s", op)));
@@ -124,45 +124,45 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
                     }
                 }
                 String num = etNumber.getText().toString();
-                if(num.length()>0 && b==0) {
-                    num1 = Double.valueOf(num);
-                    b++;
+                if(num.length()>0 && flagForNextNumb==0) {
+                    nextNumb = Double.valueOf(num);
+                    flagForNextNumb++;
                     operation = op;
                     etNumber.setText(String.format("%s%s", etNumber.getText().toString(), op));
                 }
-                else if(num.length()>0 && b>0){
+                else if(num.length()>0 && flagForNextNumb>0){
                     String []a = num.split(String.format("%s%s","\\" ,operation));
                     num = num.split(String.format("%s%s", "\\", operation))[a.length-1];
                     if(op.equals("=")){
-                        operations(Double.valueOf(num), num1);
+                        operations(Double.valueOf(num), nextNumb);
                         etNumber.setText(String.format("%s", operand.toString()));
                         cleaning();
                         operation = op;
-                        clickable = 2;
-                        clicktouch = 0;
+                        flagOperand = 2;
+                        flagPoint = 0;
                         return;
                     }
                     else{
-                        operations(Double.valueOf(num), num1);
-                        num1 = Double.valueOf(String.format("%s", operand));
+                        operations(Double.valueOf(num), nextNumb);
+                        nextNumb = Double.valueOf(String.format("%s", operand));
                         operation = op;
                     }
                     etNumber.setText(String.format("%s%s", etNumber.getText().toString(), op));
                 }
-                clickable = 1;
-                clicktouch = 0;
+                flagOperand = 1;
+                flagPoint = 0;
                 break;
             case R.id.btnClear:
                 cleaning();
                 tvResult.setText(String.format(getString(R.string.format_result), ""));
                 operation = "";
-                clickable = 0;
+                flagOperand = 0;
                 etNumber.setText("");
                 break;
             case R.id.btnTouch:
-                switch (clicktouch){
+                switch (flagPoint){
                     case 0: return;
-                    case 1: etNumber.setText(String.format("%s%s", etNumber.getText().toString() ,".")); clicktouch=2; clickable=0; break;
+                    case 1: etNumber.setText(String.format("%s%s", etNumber.getText().toString() ,".")); flagPoint=2; flagOperand=0; break;
                 }
                 break;
         }
