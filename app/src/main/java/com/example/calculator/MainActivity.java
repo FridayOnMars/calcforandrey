@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.view.Window;
 
 public class MainActivity extends AppCompatActivity implements PanelFragment.FragmentCallToActivity {
 

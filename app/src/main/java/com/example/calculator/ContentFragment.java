@@ -54,13 +54,13 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_content, container, false);
-        if(getArguments() != null){
-            int widthSize = getArguments().getInt("size");
-            width(R.id.btnStep, widthSize,rootView);
-            width(R.id.btnPercent, widthSize,rootView);
-            width(R.id.btnDivision, widthSize,rootView);
-            width(R.id.btnClear, widthSize,rootView);
-        }
+//        if(getArguments() != null){
+//            int widthSize = getArguments().getInt("size");
+//            width(R.id.btnStep, widthSize,rootView);
+//            width(R.id.btnPercent, widthSize,rootView);
+//            width(R.id.btnDivision, widthSize,rootView);
+//            width(R.id.btnClear, widthSize,rootView);
+//        }
         tvResult = rootView.findViewById(R.id.tvResult);
         tvResult.setText(String.format(getString(R.string.format_result), ""));
         etNumber = rootView.findViewById(R.id.etNumber);

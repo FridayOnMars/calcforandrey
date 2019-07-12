@@ -1,12 +1,54 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/black</item>
         <item name="colorPrimaryDark">@android:color/black</item>
         <item name="colorAccent">@android:color/holo_orange_dark</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="colorButtonNormal">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Buttons">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#0000FF</item>
+        <item name="android:background">@drawable/selector_button</item>
+    </style>
+    <style name="ButtonOperations" parent="Buttons">
+
+    </style>
+    <style name="ButtonNumbs" parent="Buttons">
+
+    </style>
+    <style name="Position1" parent="ButtonNumbs">
+        <item name="android:layout_alignStart">@id/btnStep</item>
+        <item name="android:layout_alignEnd">@id/btnStep</item>
+    </style>
+    <style name="Position2" parent="ButtonNumbs">
+        <item name="android:layout_alignStart">@id/btnPercent</item>
+        <item name="android:layout_alignEnd">@id/btnPercent</item>
+
+    </style>
+    <style name="Position3" parent="ButtonNumbs">
+        <item name="android:layout_alignStart">@id/btnDivision</item>
+        <item name="android:layout_alignEnd">@id/btnDivision</item>
+    </style>
+    <style name="Position4" parent="ButtonNumbs">
+        <item name="android:layout_alignStart">@+id/btnClear</item>
+        <item name="android:layout_alignEnd">@+id/btnClear</item>
+    </style>
+    <style name="NumberNull" parent="ButtonNumbs">
+        <item name="android:layout_below">@+id/btn1</item>
+        <item name="android:layout_alignStart">@+id/btnStep</item>
+        <item name="android:layout_alignEnd">@+id/btnPercent</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+    <style name="ButtonEnd" parent="ButtonNumbs">
+        <item name="android:layout_alignStart">@+id/btnClear</item>
+        <item name="android:layout_alignEnd">@+id/btnClear</item>
+        <item name="android:background">@drawable/selector_button_end</item>
     </style>
 
 </resources>
