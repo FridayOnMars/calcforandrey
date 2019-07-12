@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center"
     android:layout_gravity="bottom">
     <EditText
         android:id="@+id/etNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="5sp"
+        android:layout_marginStart="30dp"
         android:cursorVisible="false"
         android:focusable="false"
         android:longClickable="false"
@@ -21,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etNumber"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="5sp"
+        android:layout_marginStart="30dp"
         android:text="@string/format_result"
         android:textSize="20sp" />
     <Button
@@ -35,18 +34,21 @@
         android:id="@+id/btnPercent"
         style="@style/ButtonOperations"
         android:layout_alignTop="@+id/btnStep"
+        android:layout_alignBottom="@+id/btnStep"
         android:layout_toEndOf="@id/btnStep"
         android:text="@string/button_percent" />
     <Button
         android:id="@+id/btnDivision"
         style="@style/ButtonOperations"
         android:layout_alignTop="@+id/btnStep"
+        android:layout_alignBottom="@+id/btnStep"
         android:layout_toEndOf="@id/btnPercent"
         android:text="@string/button_division" />
     <Button
         android:id="@+id/btnClear"
         style="@style/ButtonOperations"
         android:layout_alignTop="@+id/btnStep"
+        android:layout_alignBottom="@+id/btnStep"
         android:layout_toEndOf="@id/btnDivision"
         android:text="@string/button_clear" />
     <Button
@@ -57,16 +59,22 @@
     <Button
         android:id="@+id/btn8"
         style="@style/Position2"
+        android:layout_alignTop="@+id/btn7"
+        android:layout_alignBottom="@+id/btn7"
         android:layout_below="@id/btnPercent"
         android:text="@string/button_8" />
     <Button
         android:id="@+id/btn9"
         style="@style/Position3"
+        android:layout_alignTop="@+id/btn7"
+        android:layout_alignBottom="@+id/btn7"
         android:layout_below="@id/btnDivision"
         android:text="@string/button_9" />
     <Button
         android:id="@+id/btnPlus"
         style="@style/Position4"
+        android:layout_alignTop="@+id/btn7"
+        android:layout_alignBottom="@+id/btn7"
         android:layout_below="@+id/btnClear"
         android:text="@string/button_plus" />
     <Button
@@ -77,16 +85,22 @@
     <Button
         android:id="@+id/btn5"
         style="@style/Position2"
+        android:layout_alignTop="@+id/btn4"
+        android:layout_alignBottom="@+id/btn4"
         android:layout_below="@id/btn8"
         android:text="@string/button_5" />
     <Button
         android:id="@+id/btn6"
         style="@style/Position3"
+        android:layout_alignTop="@+id/btn4"
+        android:layout_alignBottom="@+id/btn4"
         android:layout_below="@id/btn9"
         android:text="@string/button_6" />
     <Button
         android:id="@+id/btnMinus"
         style="@style/Position4"
+        android:layout_alignTop="@+id/btn4"
+        android:layout_alignBottom="@+id/btn4"
         android:layout_below="@id/btnPlus"
         android:text="@string/button_minus" />
     <Button
@@ -97,16 +111,22 @@
     <Button
         android:id="@+id/btn2"
         style="@style/Position2"
+        android:layout_alignTop="@+id/btn1"
+        android:layout_alignBottom="@+id/btn1"
         android:layout_below="@id/btn5"
         android:text="@string/button_2" />
     <Button
         android:id="@+id/btn3"
         style="@style/Position3"
+        android:layout_alignTop="@+id/btn1"
+        android:layout_alignBottom="@+id/btn1"
         android:layout_below="@id/btn6"
         android:text="@string/button_3" />
     <Button
         android:id="@+id/btnUmn"
         style="@style/Position4"
+        android:layout_alignTop="@+id/btn1"
+        android:layout_alignBottom="@+id/btn1"
         android:layout_below="@id/btnMinus"
         android:text="@string/button_multiplication" />
     <Button
@@ -116,11 +136,15 @@
     <Button
         android:id="@+id/btnTouch"
         style="@style/Position3"
+        android:layout_alignTop="@+id/btn0"
+        android:layout_alignBottom="@+id/btn0"
         android:layout_below="@id/btn3"
         android:text="@string/button_touch" />
     <Button
         android:id="@+id/btnEnd"
         style="@style/ButtonEnd"
         android:layout_below="@id/btnUmn"
+        android:layout_alignTop="@+id/btn0"
+        android:layout_alignBottom="@+id/btn0"
         android:text="@string/button_equally" />
 </RelativeLayout>

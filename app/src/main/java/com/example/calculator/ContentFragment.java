@@ -44,7 +44,13 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
     private static void width(int button_name, int width, View rootView){
         Button button = rootView.findViewById(button_name);
         RelativeLayout.LayoutParams param = (RelativeLayout.LayoutParams) button.getLayoutParams();
-        param.width = (width-dpControl(50))/4;
+        param.width = width/4;
+        button.setLayoutParams(param);
+    }
+    private static void height(int button_name, int width, View rootView) {
+        Button button = rootView.findViewById(button_name);
+        RelativeLayout.LayoutParams param = (RelativeLayout.LayoutParams) button.getLayoutParams();
+        param.height = width / 5 + dpControl(5);
         button.setLayoutParams(param);
     }
 
@@ -54,13 +60,18 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_content, container, false);
-//        if(getArguments() != null){
-//            int widthSize = getArguments().getInt("size");
-//            width(R.id.btnStep, widthSize,rootView);
-//            width(R.id.btnPercent, widthSize,rootView);
-//            width(R.id.btnDivision, widthSize,rootView);
-//            width(R.id.btnClear, widthSize,rootView);
-//        }
+        if(getArguments() != null){
+            int widthSize = getArguments().getInt("size");
+            width(R.id.btnStep, widthSize,rootView);
+            width(R.id.btnPercent, widthSize,rootView);
+            width(R.id.btnDivision, widthSize,rootView);
+            width(R.id.btnClear, widthSize,rootView);
+            height(R.id.btnStep, widthSize,rootView);
+            height(R.id.btn7, widthSize,rootView);
+            height(R.id.btn4, widthSize,rootView);
+            height(R.id.btn1, widthSize,rootView);
+            height(R.id.btn0, widthSize,rootView);
+        }
         tvResult = rootView.findViewById(R.id.tvResult);
         tvResult.setText(String.format(getString(R.string.format_result), ""));
         etNumber = rootView.findViewById(R.id.etNumber);
@@ -130,7 +141,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener{
                     operation = op;
                     etNumber.setText(String.format("%s%s", etNumber.getText().toString(), op));
                 }
-                else if(num.length()>0 && flagForNextNumb>0){
+                else if(num.length()>0 && flagForNextNumb>0 && nextNumb>0){
                     String []a = num.split(String.format("%s%s","\\" ,operation));
                     num = num.split(String.format("%s%s", "\\", operation))[a.length-1];
                     if(op.equals("=")){

@@ -3,10 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="background">#F9C97B</color>
+    <color name="background">#F7F7FA</color>
     <color name="blue">#0000FF</color>
     <color name="grey">#CCCCCC</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
     <color name="pink">#FF6666</color>
+    <color name="colorButtons">#686565</color>
+    <color name="colorOperations">#4141CF</color>
+    <color name="orange">#FF5722</color>
+    <color name="button_select">#95B4DA</color>
+    <color name="button_end">#4C94AC</color>
 </resources>
